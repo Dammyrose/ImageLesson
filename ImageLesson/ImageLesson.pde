@@ -14,8 +14,8 @@
 
 //Static to Copy
 float imageX, imageY, imageWidth, imageHeight, picWidthAdjusted, picHeightAdjusted;
-PImage pic;
 float imageLargerDimension, imageSmallerDimension;
+PImage pic;
 Boolean widthLarger=false, heightLarger = false;
 //
 //CANVAS 
