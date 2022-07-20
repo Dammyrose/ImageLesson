@@ -7,7 +7,6 @@ float imageX2, imageY2, imageWidth2, imageHeight2, imageLargerDimension2, imageS
 float picWidthAdjusted2, picHeightAdjusted2;
 Boolean widthLarger1=false, heightLarger1 = false;
 Boolean widthLarger2=false, heightLarger2 = false;
-// picWidthAdjusted, picHeightAdjusted;
 //
 void setup() {
   //CANVAS 
@@ -67,9 +66,9 @@ void setup() {
   if (heightLarger2 == true)imageHeightRatio2 = imageLargerDimension2 / imageLargerDimension2;
   //
   //Population of rect()
-  imageX1 = width*0;
+  imageX1 = width*1/4;
   imageY1= height*0; 
-  imageWidth1 = width-1; //CANVAS (0,0) means point doesn't match to rectangle, missing outline on two sides 
+  imageWidth1 = (width-1)*1/2; //CANVAS (0,0) means point doesn't match to rectangle, missing outline on two sides 
   imageHeight1 =(height-1)*1/2;
   imageX2 = width*0;
   imageY2= height*1/2; 
@@ -82,15 +81,14 @@ void setup() {
   picHeightAdjusted1= imageHeight1* imageHeightRatio1;
   println(imageX1, imageY1, picWidthAdjusted1, picHeightAdjusted1);//Note: println() also verifies decimal places, complier will truncate
   picWidthAdjusted2 = imageWidth2 * imageWidthRatio2;
-  picHeightAdjusted2= imageHeight2* imageHeightRatio2;
+  picHeightAdjusted2= imageHeight2 ;//* imageHeightRatio2;
   println(imageX2, imageY2, picWidthAdjusted2, picHeightAdjusted2);//Note: println() also verifies decimal places, complier will truncate
   //
 };//End setup()
 //
 void draw() {
-  rect(imageX1, imageY1, imageWidth1, imageHeight1); //Top Half of CANVAS
-  rect(imageX2, imageY2, imageWidth2, imageHeight2); //Bottom Half of CANVAS 
-  //image(pic, imageX, imageY, imageWidth, imageHeight);
+  //rect(imageX1, imageY1, imageWidth1, imageHeight1); //Top Half of CANVAS
+  //rect(imageX2, imageY2, imageWidth2, imageHeight2); //Bottom Half of CANVAS 
   image(pic1, imageX1, imageY1, picWidthAdjusted1, picHeightAdjusted1);
   image(pic2, imageX2, imageY2, picWidthAdjusted2, picHeightAdjusted2);
 };// End draw()
@@ -100,3 +98,5 @@ void draw() {
 //void mousePressed() {};// End mousePressed
 //
 //End MAIN Program
+
+//
