@@ -5,6 +5,8 @@ float imageX1, imageY1, imageWidth1, imageHeight1, imageLargerDimension1, imageS
 float picWidthAdjusted1, picHeightAdjusted1;
 float imageX2, imageY2, imageWidth2, imageHeight2, imageLargerDimension2, imageSmallerDimension2, imageWidthRatio2 =0.0, imageHeightRatio2=0.0;
 float picWidthAdjusted2, picHeightAdjusted2;
+float buttonX, buttonY, buttonWidth, buttonHeight;
+color white =  #F5F2F2, red =#F50C0C, resetButtonColour = #FFFFFF, buttonFill;
 Boolean widthLarger1=false, heightLarger1 = false;
 Boolean widthLarger2=false, heightLarger2 = false;
 //
@@ -84,18 +86,41 @@ void setup() {
   picHeightAdjusted2= imageHeight2 ;//* imageHeightRatio2;
   println(imageX2, imageY2, picWidthAdjusted2, picHeightAdjusted2);//Note: println() also verifies decimal places, complier will truncate
   //
+  //Population of button 
+  int centerX = width/2;
+  int centerY = height/2;
+  buttonX = centerX - width*1/4;
+  buttonY = centerY - height* 1/4;
+  buttonWidth = width*497/1000; 
+  buttonHeight = height*1/4 ;
+  
+  //
+  rect(buttonX, buttonY, buttonWidth, buttonHeight);
 };//End setup()
 //
 void draw() {
+  //Hover-over 
+  if(mouseX> buttonX && mouseX< buttonX+buttonWidth && mouseY> buttonY && mouseY< buttonY+buttonHeight) {
+    buttonFill = red;
+  } else {
+    buttonFill = white ;
+  }//End Hover-over
+  fill (buttonFill); //2-colours to start, remember that nightMode adds choice
+  rect(buttonX, buttonY, buttonWidth, buttonHeight);
+  fill (resetButtonColour);
   //rect(imageX1, imageY1, imageWidth1, imageHeight1); //Top Half of CANVAS
   //rect(imageX2, imageY2, imageWidth2, imageHeight2); //Bottom Half of CANVAS 
   image(pic1, imageX1, imageY1, picWidthAdjusted1, picHeightAdjusted1);
   image(pic2, imageX2, imageY2, picWidthAdjusted2, picHeightAdjusted2);
+  //
 };// End draw()
 //
 //void keyPressed() {};// End keyPressed()
 //
-//void mousePressed() {};// End mousePressed
+void mousePressed() {
+   if( mouseX> buttonX && mouseX< buttonX+buttonWidth && mouseY> buttonY && mouseY< buttonY+buttonHeight) exit();
+
+};// End mousePressed
 //
 //End MAIN Program
 
